@@ -67,10 +67,14 @@ class LoginView(APIView):
             # set the cookie if requested
             response = Response({"access_token": token, "token_type": "bearer"})
             if request.GET.get("set_cookie") == "1":
-                # Don't add httponly=True or secure=True as it's still in
-                # development phase, but it should be added once the front-end
-                # is ready
-                response.set_cookie(settings.SESSION_COOKIE_NAME, token)
+                # Ensure cookies are set securely with proper attributes.
+                response.set_cookie(
+                    settings.SESSION_COOKIE_NAME,
+                    token,
+                    secure=True,
+                    httponly=True,
+                    samesite='Lax',
+                )
             return response
         elif response.status_code == 403:
             time.sleep(2)  # prevents brute-force
