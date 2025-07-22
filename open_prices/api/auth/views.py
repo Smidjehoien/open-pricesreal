@@ -73,7 +73,7 @@ class LoginView(APIView):
                     token,
                     secure=True,
                     httponly=True,
-                    samesite='Lax',
+                    samesite="Lax",
                 )
             return response
         elif response.status_code == 403:
