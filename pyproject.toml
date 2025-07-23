@@ -45,7 +45,7 @@ Babel = "~2.13.1"
 openfoodfacts = {version = "~2.8.0", extras = ["ml", "redis"]}
 psycopg2-binary = "~2.9.9"
 python-multipart = "~0.0.7"
-requests = "~2.31.0"
+requests = "~2.32.4"
 osmpythontools = "^0.3.5"
 typer = "~0.9.0"
 django = "^5.1.7"
